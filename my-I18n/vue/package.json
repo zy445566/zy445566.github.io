@@ -1,5 +1,5 @@
 {
-  "name": "my-i18n",
+  "name": "vue-i18n",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "my-i18n": "^1.0.7",
+    "my-i18n": "^1.0.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {
