@@ -2,7 +2,7 @@
 
 # run
 ```sh
-cd example/vue
+cd my-I18n/vue
 npm install
 npm run start
 ```

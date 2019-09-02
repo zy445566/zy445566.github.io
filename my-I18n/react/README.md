@@ -2,7 +2,7 @@
 
 # run
 ```sh
-cd example/react
+cd my-I18n/react
 npm install
 npm run start
 ```
