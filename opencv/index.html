@@ -26,6 +26,7 @@
 let inputElement = document.getElementById('fileInput');
 let faceBtn = document.getElementById('getFaceBtn');
 let img = new Image();
+let loading = true;
 inputElement.addEventListener('change', (e) => {
     img.src = URL.createObjectURL(e.target.files[0]);
 }, false);
@@ -41,6 +42,9 @@ img.onload = function() {
     }
 };
 faceBtn.addEventListener('click', (e) => {
+    if(loading) {
+        return alert('正在加载opencv.js和模型文件')
+    }
     if(!img.src) {
         return alert('请先上传图片')
     }
@@ -75,10 +79,10 @@ faceBtn.addEventListener('click', (e) => {
 function onOpenUtilsReady() {
     let utils = new Utils('errorMessage');
     utils.loadOpenCv(() => {
-    document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
     let faceCascadeFile = 'haarcascade_frontalface_default.xml';
     utils.createFileFromUrl(faceCascadeFile, faceCascadeFile, () => {
-        console.log('加载模型成功')
+        document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+        loading = false;
     });
 });
 }
