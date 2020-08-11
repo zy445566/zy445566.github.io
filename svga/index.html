@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<style>
+    #canvas {
+      background-color:#000;
+    }
+</style>
+<!--  Meta  -->
+<meta charset="UTF-8" />
+<title>svga Demo</title>
+
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/svga.lite/svga.lite.min.js"></script>
+  <script>
+    const { Downloader, Parser, Player } = SVGA;
+    const downloader = new Downloader()
+    const parser = new Parser()
+    const player = new Player('#canvas') // #canvas 是 HTMLCanvasElement
+    ;(async () => {
+      const fileData = await downloader.get('./kaola.svga')
+      const svgaData = await parser.do(fileData)
+      await player.mount(svgaData)
+      player.start()
+    })()
+    
+  </script>
+</body>
+
+</html>
